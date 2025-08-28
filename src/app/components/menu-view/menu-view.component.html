@@ -1,0 +1,17 @@
+<div class="bg-black border  rounded-xl w-150 m-8 h-200 text-center font-sans text-white opacity-75">
+    <div class="grid grid-row-6 h-full">
+        <app-menu></app-menu>
+        <ng-container *ngIf="selected === 'controls'">
+            <controls></controls>
+        </ng-container>
+        <ng-container *ngIf="selected === 'display'">
+            <display></display>
+        </ng-container>
+        <ng-container *ngIf="selected === 'ai'">
+            <aiprompt></aiprompt>
+        </ng-container>
+        <ng-container *ngIf="selected === 'heatmap'">
+            <heatmap></heatmap>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="route-panel">
+  <h3>🚀 Opciones de Ruta</h3>
+  <div *ngFor="let route of routes$ | async">
+    <div 
+      class="route-option" 
+      [attr.data-route-id]="route.id"
+      (click)="onRouteSelect(route.id)"
+      [style.border]="isRouteSelected(route.id, (selectedRouteId$ | async)) ? '2px solid #4CAF50' : '1px solid rgba(255,255,255,0.2)'"
+      [style.background]="isRouteSelected(route.id, (selectedRouteId$ | async)) ? 'rgba(76, 175, 80, 0.1)' : 'transparent'"
+      (mouseenter)="onRouteHover(route.id, $event, true)"
+      (mouseleave)="onRouteHover(route.id, $event, false)"
+      style="
+        margin: 10px 0;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      "
+    >
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <div style="display: flex; align-items: center;">
+          <div 
+            style="
+              width: 16px;    
+              height: 16px; 
+              border-radius: 50%; 
+              margin-right: 10px;
+            "
+            [style.background]="route.color"
+            [style.boxShadow]="isRouteSelected(route.id, (selectedRouteId$ | async)) ? '0 0 10px ' + route.color : 'none'"
+          ></div>
+          <strong [style.color]="route.color">{{route.name}}</strong>
+        </div>
+        <span 
+          *ngIf="isRouteSelected(route.id, (selectedRouteId$ | async))" 
+          style="color: #4CAF50; font-size: 12px;"
+        >
+          ✓ ACTIVA
+        </span>
+      </div>
+      <div style="font-size: 12px; color: #ccc; margin-left: 26px;">
+        ⏱️ {{route.duration}} • 📏 {{route.distance}} • 🚶 {{route.type}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+
+<div>
+    <div class="m-8">
+        <button 
+        (click)="togglePlay()"
+        class="outline-2 outline-yellow-500 p-4 rounded-md m-2 w-50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-yellow-500 hover:bg-opacity-50">
+        {{ isPlaying ? '⏸️ Pausar' : '▶️ Reproducir' }}
+    </button>
+    <button 
+        (click)="resetTime()"
+        class="outline-2 outline-yellow-500 p-4 rounded-md m-2 w-50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-yellow-500">
+        🔄 Reset
+    </button>
+    </div>
+    <div>
+        <p class="text-2xl m-2">{{ time }}</p>
+        <input
+            type="range"
+            class="form-range text-white"
+            min="0"
+            max="1439"
+            [value]="minutes"
+            (input)="minutes = $any($event.target).value"
+            id="customRange4"
+        />
+    </div>
+    <div class="bg-black m-8 h-80 rounded-md bg-gray-800">
+        <div class="p-4">
+            <h1 class="text-white">AGENTES</h1>
+        </div>
+
+        <div>
+            <div class="flex flex-col flex-nowrap h-60 overflow-y-auto overflow-x-hidden">
+                <div class="grid grid-cols-2 justify-center gap-x-4">
+                    <div class="card col-span-1 " style="width: 16rem;">
+                        <div class="card-body bg-gray-600 m-2 rounded-md border-l-4 border-yellow-500 text-start ">
+                            <h5 class="card-title ml-2">Turista-1</h5>
+                            <p class="card-text">📍 Inicio → Destino</p>
+                            <p>⏱️ Tiempo Inicio - Tiempo Final</p>
+                            <p>📊 Progreso: 100%</p>
+                            <p>
+                                <i class="fa-solid fa-bus text-blue-500 m-4"></i>
+                                <i class="fa-solid fa-bicycle text-green-500 m-4"></i>
+                                <i class="fa-solid fa-car text-yellow-500 m-4"></i>
+                                <i class="fa-solid fa-person-walking text-red-500 m-4"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card col-span-1 " style="width: 16rem;">
+                        <div class="card-body bg-gray-600 m-2 rounded-md border-l-4 border-yellow-500 text-start">
+                            <h5 class="card-title ml-2">Turista-2</h5>
+                            <p class="card-text">📍 Inicio → Destino</p>
+                            <p class="card-text">⏱️ Tiempo Inicio - Tiempo Final</p>
+                            <p class="card-text">📊 Progreso: 100%</p>
+                            <p class="card-text">
+                                <i class="fa-solid fa-bus text-blue-500 m-4"></i>
+                                <i class="fa-solid fa-bicycle text-green-500 m-4"></i>
+                                <i class="fa-solid fa-car text-yellow-500 m-4"></i>
+                                <i class="fa-solid fa-person-walking text-red-500 m-4"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card col-span-1 " style="width: 16rem;">
+                        <div class="card-body bg-gray-600 m-2 rounded-md border-l-4 border-yellow-500 text-start ">
+                            <h5 class="card-title ml-2">Turista-3</h5>
+                            <p class="card-text">📍 Inicio → Destino</p>
+                            <p>⏱️ Tiempo Inicio - Tiempo Final</p>
+                            <p>📊 Progreso: 100%</p>
+                            <p>
+                                <i class="fa-solid fa-bus text-blue-500 m-4"></i>
+                                <i class="fa-solid fa-bicycle text-green-500 m-4"></i>
+                                <i class="fa-solid fa-car text-yellow-500 m-4"></i>
+                                <i class="fa-solid fa-person-walking text-red-500 m-4"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card col-span-1 " style="width: 16rem;">
+                        <div class="card-body bg-gray-600 m-2 rounded-md border-l-4 border-yellow-500 text-start">
+                            <h5 class="card-title ml-2">Turista-4</h5>
+                            <p class="card-text">📍 Inicio → Destino</p>
+                            <p class="card-text">⏱️ Tiempo Inicio - Tiempo Final</p>
+                            <p class="card-text">📊 Progreso: 100%</p>
+                            <p class="card-text">
+                                <i class="fa-solid fa-bus text-blue-500 m-4"></i>
+                                <i class="fa-solid fa-bicycle text-green-500 m-4"></i>
+                                <i class="fa-solid fa-car text-yellow-500 m-4"></i>
+                                <i class="fa-solid fa-person-walking text-red-500 m-4"></i>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,65 @@
+body { margin: 0; padding: 0; }
+
+.map-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#agent-map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    z-index: 1;
+}
+
+/* Asegurar que el menú esté superpuesto */
+app-menu-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+/* Asegurar que todos los elementos del menú sean clickeables */
+app-menu-view * {
+    pointer-events: auto;
+}
+
+/* Estilos para los elementos de ruta */
+.route-info {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* Estilos para el panel de rutas */
+.route-option:hover {
+  transform: translateY(-1px);
+}
+
+.route-option.selected {
+  border-color: #4CAF50 !important;
+  background: rgba(76, 175, 80, 0.1) !important;
+}
+
+/* Animación suave para cambios de ruta */
+#route-panel {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

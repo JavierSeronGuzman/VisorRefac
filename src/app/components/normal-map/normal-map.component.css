@@ -1,0 +1,40 @@
+body { margin: 0; padding: 0; }
+
+.map-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#normal-map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    z-index: 1;
+}
+
+/* Asegurar que el menú esté superpuesto */
+app-menu-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+/* Asegurar que todos los elementos del menú sean clickeables */
+app-menu-view * {
+    pointer-events: auto;
+}
+
+/* Estilos para los marcadores de agentes */
+.agent-marker {
+    transition: all 0.3s ease;
+}
+
+.agent-marker:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.8) !important;
+}

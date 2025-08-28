@@ -1,0 +1,12 @@
+<div class="map-container">
+    @if(selected == 'heatmap') {
+        <div id="map"></div>
+        <app-menu-view></app-menu-view>
+    }
+    @if(selected == 'display') {
+        <app-agent-map></app-agent-map>
+    }
+    @if(selected == 'controls') {
+        <normal-map></normal-map>
+    }
+</div>
