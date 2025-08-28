@@ -6,6 +6,7 @@ import { MenuComponent } from '../menu-view/menu/menu.component';
 import { selectRoute, setRoutes } from '../../store/menu.action';
 import { RouteOption } from '../../models/route-option.model';
 import { RouteState } from '../../store/menu.reducer';
+import { SharingDataService } from '../../services/sharing-data.service';
 
 @Component({
   selector: 'app-agent-map',
@@ -342,7 +343,7 @@ export class AgentMapComponent implements OnInit, OnDestroy {
     this.clearCurrentRoute();
   }
     
-  constructor(private store: Store<{ menu: string, routes: RouteState }>) {
+  constructor(private store: Store<{ menu: string, routes: RouteState }>, private sharingService: SharingDataService) {
     this.store.select('menu').subscribe(menu => {
       console.log('Menu state:', menu);
       this.selected = menu;
@@ -354,6 +355,9 @@ export class AgentMapComponent implements OnInit, OnDestroy {
         console.log('Nueva ruta seleccionada desde store:', routeId);
         this.selectRouteFromStore(routeId);
       }
+    });
+    this.sharingService.clearRuta.subscribe(() => {
+      this.clearAll();
     });
   }
 

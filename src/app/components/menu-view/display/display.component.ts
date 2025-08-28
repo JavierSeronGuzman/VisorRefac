@@ -4,7 +4,8 @@ import { RouteOption } from '../../../models/route-option.model';
 import { Store } from '@ngrx/store';
 import { RouteState } from '../../../store/menu.reducer';
 import { CommonModule } from '@angular/common';
-import { selectRoute } from '../../../store/menu.action';
+import { selectRoute, setRoutes } from '../../../store/menu.action';
+import { SharingDataService } from '../../../services/sharing-data.service';
 
 @Component({
   selector: 'display',
@@ -17,7 +18,9 @@ export class DisplayComponent {
   routes$: Observable<RouteOption[]>;
   selectedRouteId$: Observable<number | null>;
 
-  constructor(private store: Store<{ routes: RouteState }>) {
+  constructor(private store: Store<{ routes: RouteState }>,
+    private sharingService: SharingDataService
+  ) {
     this.routes$ = this.store.select(state => state.routes.routes);
     this.selectedRouteId$ = this.store.select(state => state.routes.selectedRouteId);
   }
@@ -53,5 +56,14 @@ export class DisplayComponent {
         }
       }
     }).unsubscribe(); // Desuscribirse inmediatamente ya que solo necesitamos el valor actual
+  }
+
+  clearRuta(): void {
+    console.log('Limpiando rutas desde display...');
+    // Limpiar las rutas del store
+    this.store.dispatch(setRoutes({ routes: [] }));
+    // Limpiar la selección
+    this.store.dispatch(selectRoute({ routeId: 0 }))
+    this.sharingService.clearRuta.emit();
   }
 }

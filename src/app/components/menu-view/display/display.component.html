@@ -1,5 +1,24 @@
 <div class="route-panel">
-  <h3>🚀 Opciones de Ruta</h3>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+    <h3 style="margin: 0;">🚀 Opciones de Ruta</h3>
+    <button 
+      (click)="clearRuta()" 
+      style="
+        background: #f44336;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: background 0.3s ease;
+      "
+      onmouseover="this.style.background='#d32f2f'"
+      onmouseout="this.style.background='#f44336'"
+    >
+      🗑️ Limpiar Rutas
+    </button>
+  </div>
   <div *ngFor="let route of routes$ | async">
     <div 
       class="route-option" 
